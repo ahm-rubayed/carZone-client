@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png"
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+      logOut()
+          .then(() => { })
+          .catch(err => console.log(err));
+  }
     const menuItems = <>
-        <li><Link to={'/home'}>Home</Link></li>
+        <li><Link to={'/'}>Home</Link></li>
         <li><Link to={'/about'}>About</Link></li>
         <li><Link to={'/blog'}>Blog</Link></li>
     </>
@@ -38,6 +46,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="navbar-end">
+      {user?.uid ?
       <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
@@ -52,9 +61,12 @@ const Header = () => {
           </Link>
         </li>
         <li><Link>Settings</Link></li>
-        <li><Link>Logout</Link></li>
+        <li><button onClick={handleLogOut}>Logout</button></li>
       </ul>
     </div>
+    :
+    <Link to={'/login'}>Login</Link>
+    }
     </div>
     </div>
   );
