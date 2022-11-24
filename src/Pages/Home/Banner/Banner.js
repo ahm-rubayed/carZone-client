@@ -18,7 +18,7 @@ const Banner = () => {
             particularly important to him to capture the intense emotions which
             make this day so unique and personal.
           </p>
-          <button className="mt-6 border py-2 px-5 explore-btn relative"><Link to="/services">Order Now</Link></button>
+          <button className="mt-6 border py-2 px-5 rounded"><Link to="/services">Order Now</Link></button>
         </div>
       </div>
     </div>

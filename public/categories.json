@@ -1,0 +1,104 @@
+[
+    {
+      "_id": 1,
+      "name": "Audi",
+      "img": "https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80",
+      "cars": [
+        {
+            "img": "",
+            "name": "audi1",
+            "location": "uk",
+            "resale price": "800",
+            "original price": "1200$",
+            "used": "1y",
+            "time": "12january"
+        },
+        {
+            "img": "",
+            "name": "audi2",
+            "location": "usa",
+            "resale price": "300",
+            "original price": "600$",
+            "used": "2y",
+            "time": "4feb"
+        },
+        {
+            "img": "",
+            "name": "audi3",
+            "location": "uk",
+            "resale price": "800",
+            "original price": "1200$",
+            "used": "1y",
+            "time": "12january"
+        }
+      ]
+    },
+    {
+      "_id": 2,
+      "name": "Honda",
+      "img": "https://images.unsplash.com/photo-1605816988069-b11383b50717?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=888&q=80",
+      "cars": [
+        {
+            "img": "",
+            "name": "audi1",
+            "location": "uk",
+            "resale price": "800",
+            "original price": "1200$",
+            "used": "1y",
+            "time": "12january"
+        },
+        {
+            "img": "",
+            "name": "audi2",
+            "location": "usa",
+            "resale price": "300",
+            "original price": "600$",
+            "used": "2y",
+            "time": "4feb"
+        },
+        {
+            "img": "",
+            "name": "audi3",
+            "location": "uk",
+            "resale price": "800",
+            "original price": "1200$",
+            "used": "1y",
+            "time": "12january"
+        }
+      ]
+    },
+    {
+      "_id": 3,
+      "name": "Tesla",
+      "img": "https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
+      "cars": [
+        {
+            "img": "",
+            "name": "audi1",
+            "location": "uk",
+            "resale price": "800",
+            "original price": "1200$",
+            "used": "1y",
+            "time": "12january"
+        },
+        {
+            "img": "",
+            "name": "audi2",
+            "location": "usa",
+            "resale price": "300",
+            "original price": "600$",
+            "used": "2y",
+            "time": "4feb"
+        },
+        {
+            "img": "",
+            "name": "audi3",
+            "location": "uk",
+            "resale price": "800",
+            "original price": "1200$",
+            "used": "1y",
+            "time": "12january"
+        }
+      ]
+    }
+  ]
