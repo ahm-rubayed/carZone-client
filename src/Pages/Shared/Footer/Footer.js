@@ -13,7 +13,7 @@ const Footer = () => {
           cillum reeut cupidatatfug.
         </p>
         <span className="block myColor text-4xl">012 345 678</span>
-        <small className="mt-4 block myColor">contactproshoot@gmail.com</small>
+        <small className="mt-4 block myColor">contactcarzone@gmail.com</small>
       </div>
       <div className="lg:justify-self-end">
         <span className="text-2xl myColor">USEFUL LINKS</span>

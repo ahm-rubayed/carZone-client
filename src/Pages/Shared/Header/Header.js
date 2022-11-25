@@ -17,7 +17,7 @@ const Header = () => {
         <li><Link to={'/blog'}>Blog</Link></li>
     </>
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 fixed w-full z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -41,7 +41,7 @@ const Header = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <Link className="btn btn-ghost normal-case text-xl">
+        <Link to='/'>
             <img src={logo} alt="" className="w-32" />
         </Link>
       </div>
