@@ -20,7 +20,7 @@ const CategoryCard = () => {
           ></CategoryCardItem>
         ))}
       </div>
-      {products && <BookingModal products={products}></BookingModal>}
+      {products && <BookingModal products={products} setProducts={setProducts}></BookingModal>}
     </section>
   );
 };

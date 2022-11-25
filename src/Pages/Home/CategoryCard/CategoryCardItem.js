@@ -11,8 +11,8 @@ const CategoryCardItem = ({ car, setProducts }) => {
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
         <p>Location: {location}</p>
-        <p>Resale price: {resale}</p>
-        <p>Original Price: {original}</p>
+        <p>Resale price: ${resale}</p>
+        <p>Original Price: ${original}</p>
         <p>Years of use: {used}</p>
         <p>Time: {time}</p>
         <div className="card-actions justify-end">
