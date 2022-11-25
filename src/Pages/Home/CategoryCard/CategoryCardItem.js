@@ -1,8 +1,7 @@
 import React from "react";
 
 const CategoryCardItem = ({ car, setProducts }) => {
-  const { img, name } = car;
-  console.log(car)
+  const { img, name, location, resale, original, used, time } = car;
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
@@ -11,7 +10,11 @@ const CategoryCardItem = ({ car, setProducts }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <p>Location: {location}</p>
+        <p>Resale price: {resale}</p>
+        <p>Original Price: {original}</p>
+        <p>Years of use: {used}</p>
+        <p>Time: {time}</p>
         <div className="card-actions justify-end">
           <label
             htmlFor="booking-modal"

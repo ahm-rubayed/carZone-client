@@ -16,10 +16,10 @@ const DisplayError = () => {
     }
 
     return (
-        <div>
+        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
             <p className='text-red-500'>Something went wrong!!!</p>
-            <p className='text-red-400'>{error.statusText || error.message}</p>
-            <h4 className="text-3xl"> Please <button onClick={handleLogOut}>Sign out</button> and log back in</h4>
+            <p className='text-red-500 my-1'>{error.statusText || error.message}</p>
+            <h4 className="text-2xl"> Please <button className='underline italic font-bold' onClick={handleLogOut}>Sign out</button> and log in again</h4>
         </div>
     );
 };

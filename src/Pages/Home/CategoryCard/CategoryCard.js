@@ -12,7 +12,7 @@ const CategoryCard = () => {
 
   return (
     <section>
-      <div className="grid grid-cols-3 my-16 justify-items-center">
+      <div className="grid grid-cols-3 pt-32 mb-16 justify-items-center">
         {cars.map((car) => (
           <CategoryCardItem
             car={car}

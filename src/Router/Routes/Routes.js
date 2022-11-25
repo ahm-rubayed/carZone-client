@@ -3,6 +3,7 @@ import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import AddProducts from "../../Pages/Dashboard/AddProducts/AddProducts";
+import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
 import ErrorRoute from "../../Pages/ErrorRoute/ErrorRoute";
 import CategoryCard from "../../Pages/Home/CategoryCard/CategoryCard";
 import Home from "../../Pages/Home/Home/Home";
@@ -12,48 +13,65 @@ import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <DisplayError></DisplayError>,
+    children: [
+      {
         path: "/",
-        element: <Main></Main>,
-        errorElement: <DisplayError></DisplayError>,
-        children: [
-            {
-                path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/login',
-                element: <Login></Login>
-            },
-            {
-                path: '/register',
-                element: <Register></Register>
-            },
-            {
-                path: '/blog',
-                element: <Blog></Blog>
-            },
-            {
-                path: '/category/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`),
-                element: <PrivateRoute><CategoryCard></CategoryCard></PrivateRoute>
-            }
-        ]
-    },
-    {
-        path: "/dashboard",
-        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
-        children: [
-            {
-                path: '/dashboard/addproduct',
-                element: <AddProducts></AddProducts>
-            }
-        ]
-    },
-    {
-        path: "*",
-        element: <ErrorRoute></ErrorRoute>
-    }
-])
+        element: <Home></Home>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/category/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/category/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <CategoryCard></CategoryCard>
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: '/dashboard',
+        element: <MyProducts></MyProducts>
+      },
+      {
+        path: "/dashboard/myproduct",
+        element: <MyProducts></MyProducts>
+      },
+      {
+        path: "/dashboard/addproduct",
+        element: <AddProducts></AddProducts>,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <ErrorRoute></ErrorRoute>,
+  },
+]);
 
-export default router
+export default router;
