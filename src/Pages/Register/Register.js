@@ -7,7 +7,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, updateUser, googleProvider } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
     const [createdUserEmail, setCreatedUserEmail] = useState('')
     // const [token] = useToken(createdUserEmail);
@@ -40,6 +40,12 @@ const Register = () => {
             });
     }
 
+    const handleGoogleLogin = () => {
+        googleProvider()
+        .then(() => {})
+        .catch(err => console.error(err))
+    }
+
     const saveUser = (name, email) =>{
         const user ={name, email};
         fetch('https://doctors-portal-server-rust.vercel.app/users', {
@@ -54,8 +60,6 @@ const Register = () => {
             setCreatedUserEmail(email);
         })
     }
-
-    
 
     return (
         <div className='h-[500px] flex justify-center items-center'>
@@ -90,7 +94,7 @@ const Register = () => {
                 </form>
                 <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <button onClick={handleGoogleLogin} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
 
             </div>
         </div>
