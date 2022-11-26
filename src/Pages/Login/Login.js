@@ -70,7 +70,7 @@ const Login = () => {
                         {loginError && <p className='text-red-600'>{loginError}</p>}
                     </div>
                 </form>
-                <p className='mt-3'>New to carZone? <Link className='text-secondary' to="/signup">Create new Account</Link></p>
+                <p className='mt-3'>New to carZone? <Link className='text-secondary' to="/register">Create new Account</Link></p>
                 <div className="divider">OR</div>
                 <button onClick={handleGoogleLogin} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
             </div>

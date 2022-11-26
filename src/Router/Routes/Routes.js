@@ -4,6 +4,7 @@ import Main from "../../Layout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import AddProducts from "../../Pages/Dashboard/AddProducts/AddProducts";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
 import ErrorRoute from "../../Pages/ErrorRoute/ErrorRoute";
 import CategoryCard from "../../Pages/Home/CategoryCard/CategoryCard";
 import Home from "../../Pages/Home/Home/Home";
@@ -66,6 +67,11 @@ const router = createBrowserRouter([
         path: "/dashboard/addproduct",
         element: <AddProducts></AddProducts>,
       },
+      {
+        path: "/dashboard/payment/:id",
+        element: <Payment></Payment>,
+        loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+      }
     ],
   },
   {
