@@ -36,9 +36,9 @@ const AddProducts = () => {
     }
 
     return (
-        <div className='w-96 p-7'>
-            <h2 className="text-4xl">Add A Product</h2>
-            <form onSubmit={handleSubmit(handleAddProduct)}>
+        <div className='w-96 py-7 mx-auto my-6'>
+            <h2 className="text-4xl text-center">Add A Product</h2>
+            <form onSubmit={handleSubmit(handleAddProduct)} className="mb-3 border p-6 rounded-lg mt-6 shadow-lg">
                 <div className="form-control w-full max-w-xs mt-8">
                     <label className="label"> <span className="label-text">Product Name</span></label>
                     <input type="text" {...register("name", {

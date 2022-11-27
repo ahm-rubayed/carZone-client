@@ -42,7 +42,9 @@ const Register = () => {
 
   const handleGoogleLogin = () => {
     googleProvider()
-      .then(() => {})
+      .then((data) => {
+        console.log(data)
+      })
       .catch((err) => console.error(err));
   };
 
@@ -64,9 +66,9 @@ const Register = () => {
   };
 
   return (
-    <div className="h-[500px] flex justify-center items-center">
-      <div className="w-96 p-7">
-        <h2 className="text-xl text-center">Register</h2>
+    <div className="h-[600px] flex justify-center items-center mb-32 pt-36">
+      <div className="w-96 p-7 rounded-lg shadow-xl">
+        <h2 className="text-2xl text-center mb-6 uppercase font-semibold">Register</h2>
         <form onSubmit={handleSubmit(handleRegister)}>
           <div className="form-control w-full max-w-xs">
             <label className="label">
@@ -123,7 +125,9 @@ const Register = () => {
               <p className="text-red-500">{errors.password.message}</p>
             )}
           </div>
-          <select className="select select-primary w-full max-w-xs mt-3" {...register('role')}>
+          <select className="select select-primary w-full max-w-xs mt-3" {...register('role', {
+            required: true
+          })}>
             <option selected value='seller' >Seller</option>
             <option value='buyer'>Buyer</option>
           </select>
@@ -134,9 +138,9 @@ const Register = () => {
           />
           {signUpError && <p className="text-red-600">{signUpError}</p>}
         </form>
-        <p>
-          Already have an account{" "}
-          <Link className="text-primary" to="/login">
+        <p className="mt-3">
+          Already have an account?{" "}
+          <Link className="text-primary underline" to="/login">
             Please Login
           </Link>
         </p>

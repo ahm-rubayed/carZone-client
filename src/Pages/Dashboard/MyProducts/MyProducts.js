@@ -44,13 +44,12 @@ const MyProducts = () => {
   // }
 
   return (
-    <div>
+    <div className="px-6">
       <h2 className="text-3xl mb-6">Products: {products?.length}</h2>
       <div className="overflow-x-auto">
         <table className="table w-11/12">
           <thead>
             <tr>
-              <th></th>
               <th></th>
               <th>Product Name</th>
               <th>Price</th>
@@ -63,23 +62,16 @@ const MyProducts = () => {
             {products?.map((product, i) => (
               <tr key={product._id}>
                 <th>{i + 1}</th>
-                <th>
-                  <div className="avatar">
-                    <div className="w-16 rounded-full">
-                      <img src="https://placeimg.com/192/192/people" alt="" />
-                    </div>
-                  </div>
-                </th>
                 <td>{product.name}</td>
                 <td>{product.price}</td>
                 <td>
                   {product.price && !product.paid && (
                     <Link to={`/dashboard/payment/${product._id}`}>
-                      <button className="btn btn-primary text-white btn-sm">Pay</button>
+                      <button className="btn btn-primary text-white btn-sm">Sale</button>
                     </Link>
                   )}
                   {product.price && product.paid && (
-                    <span className="text-blue-500">Paid</span>
+                    <span className="text-blue-500">Sold</span>
                   )}
                 </td>
                 <td className="cursor-pointer">Advertise</td>

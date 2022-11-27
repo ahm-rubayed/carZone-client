@@ -41,9 +41,9 @@ const Login = () => {
     }
 
     return (
-        <div className='h-[500px] flex justify-center items-center'>
-            <div className='w-96 p-7'>
-                <h2 className='text-xl text-center'>Login</h2>
+        <div className='h-[600px] flex justify-center items-center'>
+            <div className='w-96 mt-3 p-6 rounded-lg shadow-xl'>
+                <h2 className='text-2xl text-center uppercase mb-6 font-semibold'>Login</h2>
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Email</span></label>
@@ -65,12 +65,12 @@ const Login = () => {
                         <label className="label"> <span className="label-text">Forget Password?</span></label>
                         {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                     </div>
-                    <input className='btn btn-accent w-full mt-4' value="Login" type="submit" />
+                    <input className='btn btn-primary w-full mt-4 text-white' value="Login" type="submit" />
                     <div>
                         {loginError && <p className='text-red-600'>{loginError}</p>}
                     </div>
                 </form>
-                <p className='mt-3'>New to carZone? <Link className='text-secondary' to="/register">Create new Account</Link></p>
+                <p className='mt-3 text-center'>New to carZone? <Link className='text-primary font-bold' to="/register">Create new Account</Link></p>
                 <div className="divider">OR</div>
                 <button onClick={handleGoogleLogin} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
             </div>

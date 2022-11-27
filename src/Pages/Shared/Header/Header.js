@@ -64,7 +64,7 @@ const Header = () => {
       </ul>
     </div>
     :
-    <Link to='/login' className="uppercase">Login</Link>
+    <Link to='/login' className="uppercase font-semibold">Login</Link>
     }
     </div>
     </div>
