@@ -13,7 +13,7 @@ const CategoryItem = ({category}) => {
           <h2 className="card-title">{name}</h2>
           <p>If a dog chews shoes whose shoes does he choose?</p>
           <div className="card-actions justify-end">
-            <Link className="btn btn-primary" to={`/category/${category._id}`}>Buy Now</Link>
+            <Link className="btn btn-primary text-white" to={`/category/${category._id}`}>Buy Now</Link>
           </div>
         </div>
       </div>

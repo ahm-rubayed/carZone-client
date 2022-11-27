@@ -5,10 +5,10 @@ import { FaTwitter, FaFacebook, FaYoutube  } from 'react-icons/fa';
 const Footer = () => {
   return (
     <div className="px-12 lg:px-40 pt-16 pb-7 bg-black text-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div className="lg:justify-self-end">
-        <img src={logo2} alt="" />
-        <p className="my-6">
+        <img src={logo2} alt="logo" className="w-48 lg:w-full" />
+        <p className="my-6 text-gray-300">
           Duis aute irure dolor inasfa reprehenderit in voluptate velit esse
           cillum reeut cupidatatfug.
         </p>
