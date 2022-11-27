@@ -24,12 +24,11 @@ const MyProducts = () => {
     },
   });
 
+  console.log(products)
+
   const handleDeleteProduct = (product) => {
     fetch(`http://localhost:5000/products/${product._id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
+      method: "DELETE"
     })
       .then((res) => res.json())
       .then((data) => {

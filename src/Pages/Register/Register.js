@@ -17,17 +17,20 @@ const Register = () => {
 
   const handleRegister = (data) => {
     setSignUPError("");
-    createUser(data.email, data.password)
+
+    createUser(data.email, data.password, data.role)
       .then((result) => {
         const user = result.user;
+        console.log(user)
         toast.success("User Created Successfully.");
         navigate("/");
+
         const userInfo = {
           displayName: data.name,
         };
         updateUser(userInfo)
           .then(() => {
-            saveUser(data.name, data.email);
+            saveUser(data.name, data.email, data.role);
           })
           .catch((err) => console.log(err));
       })
@@ -43,9 +46,10 @@ const Register = () => {
       .catch((err) => console.error(err));
   };
 
-  const saveUser = (name, email) => {
-    const user = { name, email };
+  const saveUser = (name, email, role) => {
+    const user = { name, email, role};
     console.log(user);
+
     fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
@@ -66,7 +70,6 @@ const Register = () => {
         <form onSubmit={handleSubmit(handleRegister)}>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              {" "}
               <span className="label-text">Name</span>
             </label>
             <input
@@ -98,7 +101,6 @@ const Register = () => {
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              {" "}
               <span className="label-text">Password</span>
             </label>
             <input
@@ -121,12 +123,10 @@ const Register = () => {
               <p className="text-red-500">{errors.password.message}</p>
             )}
           </div>
-          <div className="form-control mt-6">
-            <label className="label cursor-pointer justify-start">
-              <span className="label-text text-xl">Seller</span>
-              <input type="checkbox" uncheck className="checkbox ml-3" />
-            </label>
-          </div>
+          <select className="select select-primary w-full max-w-xs mt-3" {...register('role')}>
+            <option selected value='seller' >Seller</option>
+            <option value='buyer'>Buyer</option>
+          </select>
           <input
             className="btn btn-primary text-white w-full mt-4"
             value="Register"

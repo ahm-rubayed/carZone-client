@@ -3,6 +3,7 @@ import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import AddProducts from "../../Pages/Dashboard/AddProducts/AddProducts";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
 import Payment from "../../Pages/Dashboard/Payment/Payment";
 import ErrorRoute from "../../Pages/ErrorRoute/ErrorRoute";
@@ -11,7 +12,9 @@ import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 const router = createBrowserRouter([
   {
@@ -57,15 +60,23 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/dashboard',
-        element: <MyProducts></MyProducts>
+        element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
       },
+      // {
+      //   path: "/dashboard/orders",
+      //     element: <buyer
+      // },
       {
         path: "/dashboard/myproduct",
-        element: <MyProducts></MyProducts>
+        element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
       },
       {
         path: "/dashboard/addproduct",
-        element: <AddProducts></AddProducts>,
+        element: <SellerRoute><AddProducts></AddProducts></SellerRoute>
+      },
+      {
+        path: "/dashboard/allusers",
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
         path: "/dashboard/payment/:id",

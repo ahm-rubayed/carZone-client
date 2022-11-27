@@ -13,6 +13,7 @@ const CheckoutForm = ({ product }) => {
     const elements = useElements();
     const {user} = useContext(AuthContext)
     const { _id, name, price} = product;
+    console.log(price)
 
     useEffect(() => {
         fetch("http://localhost:5000/create-payment-intent", {
