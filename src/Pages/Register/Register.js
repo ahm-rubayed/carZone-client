@@ -97,15 +97,13 @@ const Register = () => {
               {...register("name", {
                 required: "Name is Required",
               })}
-              className="input input-bordered w-full max-w-xs"
-            />
+              className="input input-bordered w-full max-w-xs"/>
             {errors.name && (
               <p className="text-red-500">{errors.name.message}</p>
             )}
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              {" "}
               <span className="label-text">Email</span>
             </label>
             <input

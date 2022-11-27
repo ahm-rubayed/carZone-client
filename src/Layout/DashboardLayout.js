@@ -40,8 +40,8 @@ const DashboardLayout = () => {
             {isAdmin && (
               <>
                 <li>
-                  <Link className="bg-slate-400 text-white my-2 uppercase" to="/dashboard/allseller">All Seller</Link>
-                  <Link className="bg-slate-400 text-white my-2 uppercase" to="/dashboard/allbuyer">All Buyer</Link>
+                  <Link className="bg-slate-500 text-white my-2 uppercase" to="/dashboard/allseller">All Seller</Link>
+                  <Link className="bg-slate-500 text-white my-2 uppercase" to="/dashboard/allbuyer">All Buyer</Link>
                 </li>
               </>
             )}
