@@ -23,7 +23,7 @@ const DashboardLayout = () => {
         <div className="drawer-content">
           <Outlet></Outlet>
         </div>
-        <div className="drawer-side border-2">
+        <div className="drawer-side border-r-2">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 text-base-content">
             {isSeller && (
@@ -40,10 +40,8 @@ const DashboardLayout = () => {
             {isAdmin && (
               <>
                 <li>
-                  <Link to="/dashboard/allusers">All Users</Link>
-                </li>
-                <li>
-                  <Link to="/dashboard/allbuyer">All Buyers</Link>
+                  <Link className="bg-slate-400 text-white my-2 uppercase" to="/dashboard/allseller">All Seller</Link>
+                  <Link className="bg-slate-400 text-white my-2 uppercase" to="/dashboard/allbuyer">All Buyer</Link>
                 </li>
               </>
             )}
