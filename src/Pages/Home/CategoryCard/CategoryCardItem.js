@@ -17,7 +17,7 @@ const CategoryCardItem = ({ car, setProducts }) => {
         <p>Time: {time}</p>
         <div className="card-actions justify-end">
           <label
-            htmlFor="booking-modal"
+            htmlFor="order-modal"
             className="btn btn-primary text-white"
             onClick={() => setProducts(car)}>
             Book Now

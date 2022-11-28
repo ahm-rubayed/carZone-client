@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Loading from "../../Shared/Loading/Loading";
 // import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 // import Loading from '../../Shared/Loading/Loading';
 
 const MyProducts = () => {
-  // const [deletingProduct, setDeletingProduct] = useState(null);
 
   const {
     data: products,
@@ -39,9 +39,9 @@ const MyProducts = () => {
       });
   };
 
-  // if (isLoading) {
-  //     return <Loading></Loading>
-  // }
+  if (isLoading) {
+      return <Loading></Loading>
+  }
 
   return (
     <div className="px-6">
@@ -53,7 +53,7 @@ const MyProducts = () => {
               <th></th>
               <th>Product Name</th>
               <th>Price</th>
-              <th>Paymnet</th>
+              <th>Payment</th>
               <th></th>
               <th></th>
             </tr>
@@ -65,22 +65,14 @@ const MyProducts = () => {
                 <td>{product.name}</td>
                 <td>{product.price}</td>
                 <td>
-                  {product.price && !product.paid && (
-                    <Link to={`/dashboard/payment/${product._id}`}>
-                      <button className="btn btn-primary text-white btn-sm">Sale</button>
-                    </Link>
-                  )}
-                  {product.price && product.paid && (
-                    <span className="text-blue-500">Sold</span>
-                  )}
+
                 </td>
                 <td className="cursor-pointer">Advertise</td>
                 <td>
                   <label
                     onClick={() => handleDeleteProduct(product)}
                     htmlFor="confirmation-modal"
-                    className="btn btn-sm btn-error text-white"
-                  >
+                    className="btn btn-sm btn-error text-white">
                     <FaTimes />
                   </label>
                 </td>

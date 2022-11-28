@@ -12,8 +12,7 @@ const CheckoutForm = ({ product }) => {
     const stripe = useStripe();
     const elements = useElements();
     const {user} = useContext(AuthContext)
-    const { _id, name, price} = product;
-    console.log(price)
+    const { _id, price} = product;
 
     useEffect(() => {
         fetch("http://localhost:5000/create-payment-intent", {
@@ -59,7 +58,6 @@ const CheckoutForm = ({ product }) => {
                 payment_method: {
                     card: card,
                     billing_details: {
-                        // name: patient,
                         email: user.email
                     },
                 },
