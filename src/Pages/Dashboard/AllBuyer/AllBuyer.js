@@ -6,7 +6,11 @@ const AllBuyer = () => {
   const { data: buyers = [], refetch } = useQuery({
     queryKey: ["buyer"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/buyer");
+      const res = await fetch("https://carzone-server-ahm-rubayed.vercel.app/buyer", {
+        headers: {
+          authorization: `bearer ${localStorage.getItem('accessToken')}`
+      },
+      });
       const data = await res.json();
       return data;
     },
@@ -15,7 +19,7 @@ const AllBuyer = () => {
   console.log(buyers)
 
   const handleDeleteBuyer = id => {
-    fetch(`http://localhost:5000/buyer/${id}`, {
+    fetch(`https://carzone-server-ahm-rubayed.vercel.app/buyer/${id}`, {
         method: 'DELETE'
     })
     .then(res => res.json())

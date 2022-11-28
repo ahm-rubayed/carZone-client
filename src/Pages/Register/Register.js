@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 // import useToken from '../../hooks/useToken';
 
@@ -14,6 +14,9 @@ const Register = () => {
   const { createUser, updateUser, googleProvider } = useContext(AuthContext);
   const [signUpError, setSignUPError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
 
   const handleRegister = (data) => {
     setSignUPError("");
@@ -23,7 +26,7 @@ const Register = () => {
         const user = result.user;
         console.log(user)
         toast.success("User Created Successfully.");
-        navigate("/");
+        navigate(from, { replace: true });
 
         const userInfo = {
           displayName: data.name,
@@ -31,6 +34,7 @@ const Register = () => {
         updateUser(userInfo)
           .then(() => {
             saveUser(data.name, data.email, data.role);
+
           })
           .catch((err) => console.log(err));
       })
@@ -43,7 +47,17 @@ const Register = () => {
   const handleGoogleLogin = () => {
     googleProvider()
       .then((data) => {
-        console.log(data)
+        const role = {
+          role: "buyer"
+        }
+
+        fetch('https://carzone-server-ahm-rubayed.vercel.app/googleuser', {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(data, role),
+        })
       })
       .catch((err) => console.error(err));
   };
@@ -53,7 +67,7 @@ const Register = () => {
     console.log(user);
 
     if(role === "seller") {
-      fetch("http://localhost:5000/seller", {
+      fetch("https://carzone-server-ahm-rubayed.vercel.app/seller", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -65,10 +79,24 @@ const Register = () => {
           console.log(data);
           return
         });
+
+        fetch("https://proshoot-server.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user)
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem('accessToken', data.token);
+            // navigate(from, { replace: true });
+          });
     }
 
     if(role === "buyer") {
-      fetch("http://localhost:5000/buyer", {
+      fetch("https://carzone-server-ahm-rubayed.vercel.app/buyer", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -80,6 +108,20 @@ const Register = () => {
           console.log(data);
           return
         });
+
+        fetch("https://carzone-server-ahm-rubayed.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user)
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem('accessToken', data.token);
+            // navigate(from, { replace: true });
+          });
     }
   };
 

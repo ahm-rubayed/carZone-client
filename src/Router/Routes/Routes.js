@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: "/category/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.id}`),
+          fetch(`https://carzone-server-ahm-rubayed.vercel.app/category/${params.id}`),
         element: (
           <PrivateRoute>
             <CategoryCard></CategoryCard>
@@ -89,7 +89,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
-        loader: ({params}) => fetch(`http://localhost:5000/orders/${params.id}`)
+        loader: ({params}) => fetch(`https://carzone-server-ahm-rubayed.vercel.app/orders/${params.id}`)
       }
     ],
   },

@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const BookingModal = ({ products, setProducts }) => {
     const {name, resale, img} = products;
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate()
 
     const handleOrder = event => {
         event.preventDefault();
@@ -26,10 +28,11 @@ const BookingModal = ({ products, setProducts }) => {
             img
         }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://carzone-server-ahm-rubayed.vercel.app/orders', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(order)
         })
@@ -38,6 +41,7 @@ const BookingModal = ({ products, setProducts }) => {
                 console.log(data);
                 if (data.acknowledged) {
                     toast.success('Order confirmed');
+                    navigate('/dashboard/orders')
                     setProducts()
                 }
                 else{

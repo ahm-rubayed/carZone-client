@@ -15,7 +15,7 @@ const CheckoutForm = ({ product }) => {
     const { _id, price} = product;
 
     useEffect(() => {
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://carzone-server-ahm-rubayed.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -75,7 +75,7 @@ const CheckoutForm = ({ product }) => {
                 transactionId: paymentIntent.id,
                 paymnetId: _id
             }
-            fetch('http://localhost:5000/payments', {
+            fetch('https://carzone-server-ahm-rubayed.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

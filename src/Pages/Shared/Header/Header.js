@@ -57,7 +57,6 @@ const Header = () => {
         <li>
           <Link to={'/dashboard'} className="justify-between">
             Dashboard
-            <span className="badge">New</span>
           </Link>
         </li>
         <li><button onClick={handleLogOut}>Logout</button></li>

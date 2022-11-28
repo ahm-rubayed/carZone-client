@@ -20,7 +20,7 @@ const AddProducts = () => {
             condition: data.condition
         }
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://carzone-server-ahm-rubayed.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
