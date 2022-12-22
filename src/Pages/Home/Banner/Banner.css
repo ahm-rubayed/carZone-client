@@ -1,13 +1,11 @@
 .banner {
     background: url(../../../assets/bg.jpg) no-repeat center;
-    /* height: 70vh; */
     width: 100%;
     background-size: cover;
   }
   
   .overlay {
-    background: rgba(0, 0, 0, 0.3);
-    /* height: 70vh; */
+    background: rgba(0, 0, 0, 0.6);
     width: 100%;
   }
   

@@ -6,8 +6,8 @@ const Banner = () => {
   return (
     <div className="banner md:h-[100vh] lg:h-[80vh]">
       <div className="overlay md:h-[100vh] lg:h-[80vh]">
-        <div className="text-white py-40 md:pt-40 px-6 md:px-16 md:absolute md:top-2/4
-          md:left-1/3 md:-translate-x-2/4 md:-translate-y-2/4">
+        <div className="text-white py-40 md:pt-40 px-6 md:px-16 md:absolute md:top-1/2
+          md:left-1/2 md:-translate-x-2/4 md:-translate-y-2/4">
             <small className="text-lg uppercase">Special offer</small>
           <h1 className="text-6xl font-semibold leading-tight ">
             Buy the best car today
